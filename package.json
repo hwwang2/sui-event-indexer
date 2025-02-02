@@ -4,13 +4,16 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@types/node": "^22.13.0",
+    "rimraf": "^6.0.1",
     "typescript": "^5.7.3"
   },
   "dependencies": {
