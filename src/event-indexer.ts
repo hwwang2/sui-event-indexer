@@ -106,14 +106,14 @@ const handleGameEvents = async (events: SuiEvent[], type: string) => {
 	events.forEach(event=>{
 		const formData = new FormData();
 		if(event.type.indexOf("GameCreated")>0){
-			const {id} = event.parsedJson as {id:string};
+			const {gid} = event.parsedJson as {gid:string};
 			formData.append('action', 'confirm');
-			formData.append('action', id);
+			formData.append('id', gid);
 		}
 		else{
-			const {id, guess, owner} = event.parsedJson as {id:string, guess:string, owner:string};
+			const {gid, guess, owner} = event.parsedJson as {gid:string, guess:string, owner:string};
 			formData.append('action', 'guess');
-			formData.append('action', id);
+			formData.append('id', gid);
 			formData.append('guess', guess);
 			formData.append('owner', owner);
 		}
