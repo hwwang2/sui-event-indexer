@@ -165,9 +165,7 @@ const executeEventJob = async (
 			order: 'ascending',
 		});
 
-		console.log(111, tracker.type);
 		await tracker.callback(data, tracker.type);
-		// console.log(222, tracker.type);
 		console.log(data);
 		if (nextCursor && data.length > 0) {
 			await saveLatestCursor(tracker, nextCursor);
